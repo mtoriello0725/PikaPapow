@@ -1,7 +1,8 @@
 from django.urls import path
 
-from . import views
+from .views import GetMemes
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('memes/', GetMemes.as_view(), name="memes-all")
+
 ]

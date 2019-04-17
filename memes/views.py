@@ -1,8 +1,11 @@
-from django.shortcuts import render
+from rest_framework import generics
+from .models import Meme
+from .serializers import MemeSerializer
 
-# Create your views here.
-from django.http import HttpResponse
 
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the memes index.")
+class GetMemes(generics.ListAPIView):
+    """
+    Provides a get method handler.
+    """
+    queryset = Meme.objects.all()
+    serializer_class = MemeSerializer
