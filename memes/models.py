@@ -8,3 +8,6 @@ class Meme(models.Model):
 	description = models.TextField()
 	upvote_peak = models.IntegerField(default=0)
 
+	def __str__(self):
+		return "{} - {}".format(self.title, self.artist)
+
